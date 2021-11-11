@@ -1,1 +1,2 @@
-# Coding-Ninja-s-Questions
+# Coding-Ninja-Questions
+Here are some logical questions based on basic c++
