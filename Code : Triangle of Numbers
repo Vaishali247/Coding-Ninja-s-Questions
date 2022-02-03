@@ -1,0 +1,37 @@
+Print the following pattern for the given number of rows.
+Sample Input 1:
+5
+Sample Output 1:
+          1
+         232
+        34543
+       4567654
+      567898765
+
+//CODE
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n,i,j,k,x,z;
+    cin>>n;
+    for(i=1;i<=n;i++)
+    {
+        x=2*i-2;
+        z=i;
+        for(k=1;k<=(n-i);k++)
+            cout<<" ";
+        for(j=1;j<=i;j++)
+        {
+            cout<<z;
+            z++;
+        }
+        for(j=1;j<=(i-1);j++)
+        {
+            cout<<x;
+            x--;
+        }
+        cout<<endl;
+    }
+    return 0;
+}
