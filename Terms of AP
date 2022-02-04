@@ -1,0 +1,24 @@
+Write a program to print first x terms of the series 3N + 2 which are not multiples of 4.
+
+Sample Input 1 :
+10
+Sample Output 1 :
+5 11 14 17 23 26 29 35 38 41
+
+
+//CODE
+
+#include <iostream>
+using namespace std;
+int main()
+{
+    int x,n,count=0;
+    cin>>n;
+    for(int i=1;count<n;i++){
+        x=3*i+2;
+        if(x%4!=0){
+        cout<<x<<" ";
+        count++;
+        }
+    }
+}
