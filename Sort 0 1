@@ -27,6 +27,23 @@ using namespace std;
 
 #include "solution.h"
 
+void sortZeroesAndOne(int *input, int size)
+{
+    int i,cz=0;//countzero=cz
+    for(i=0;i<size;i++){
+        if(input[i]==0)
+            cz++;
+    }
+    //forloop for zero elements
+    for(i=0;i<cz;i++){
+        input[i]=0;
+    }
+    //for ones element
+    for(i=cz;i<size;i++){
+        input[i]=1;
+    }
+}
+
 int main()
 {
 
@@ -58,19 +75,4 @@ int main()
 
 	return 0;
 }
-void sortZeroesAndOne(int *input, int size)
-{
-    int i,cz=0;//countzero=cz
-    for(i=0;i<size;i++){
-        if(input[i]==0)
-            cz++;
-    }
-    //forloop for zero elements
-    for(i=0;i<cz;i++){
-        input[i]=0;
-    }
-    //for ones element
-    for(i=cz;i<size;i++){
-        input[i]=1;
-    }
-}
+
