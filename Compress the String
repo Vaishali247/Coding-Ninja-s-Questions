@@ -1,0 +1,55 @@
+Write a program to do basic string compression. For a character which is consecutively repeated more than once, 
+replace consecutive duplicate occurrences with the count of repetitions.
+Example:
+If a string has 'x' repeated 5 times, replace this "xxxxx" with "x5".
+The string is compressed only when the repeated character count is more than 1.
+
+Sample Input 1:
+aaabbccdsa
+
+Sample Output 1:
+a3b2c2dsa
+
+Explanation for Sample Output 1:
+In the given string 'a' is repeated 3 times, 'b' is repeated 2 times, 'c' is repeated 2 times and 'd', 's' and 'a' and 
+occuring 1 time hence no compression for last 3 characters.
+
+//CODE
+
+#include <iostream>
+#include <cstring>
+#include<string>
+using namespace std;
+
+#include "solution.h"
+
+string getCompressedString(string &input) {
+    if(input.length()==0)
+        return ""; //empty string
+    int si=0,ei=0; //starting index and ending index
+    string ans=""; //making an output array
+    while(si<input.length()){
+        while(ei<input.length() && input[si]==input[ei]){
+            ei++;
+        }
+        int count=ei-si;
+        if(count!=1){
+            ans+=input[si]; //putting character in string .....concatination
+            ans+=(char)count+'0'; //typecasting is happning here
+        }
+        else{
+            ans+=input[si];
+        }
+        si=ei;
+    }
+    return ans;
+    
+}
+
+int main() {
+    int size = 1e6;
+    string str;
+    getline(cin, str);
+    str = getCompressedString(str);
+    cout << str << endl;
+}
