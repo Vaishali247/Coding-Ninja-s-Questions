@@ -1,0 +1,40 @@
+Print the following pattern for the given N number of rows.
+Sample Input 1:
+5
+Sample Output 1:
+A
+BC
+CDE
+DEFG
+EFGHI
+Sample Input 2:
+6
+Sample Output 2:
+A
+BC
+CDE
+DEFG
+EFGHI
+FGHIJK
+
+//CODE
+
+#include<iostream>
+using namespace std;
+
+
+int main(){
+    int n,i,j;
+    cin>>n;
+    for(i=1;i<=n;i++)
+    {
+        char start='A'+i-1;
+        for(j=1;j<=i;j++){
+            char ch=start+j-1;
+            cout<<ch;
+        }
+        cout<<endl;
+    }
+}
+
+
