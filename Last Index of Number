@@ -1,0 +1,61 @@
+Given an array of length N and an integer x, you need to find and return the last index of integer x present in the array. Return -1 if it is not present in the array.
+Last index means - if x is present multiple times in the array, return the index at which x comes last in the array.
+You should start traversing your array from 0, not from (N - 1).
+Do this recursively. Indexing in the array starts from 0.
+
+Sample Input :
+4
+9 8 10 8
+8
+Sample Output :
+3
+
+//CODE
+
+#include<iostream>
+#include "Solution.h"
+using namespace std;
+
+int lastIndex(int input[], int size, int x) {
+ 
+	if(size==0)
+        return -1;
+    //first we make recursive call
+    int check_small= lastIndex(input+1, size-1, x);
+    //now small calculations
+    //case-1 if we get -1, so we check the first position as its not yet checked
+    if(check_small == -1)
+    {
+     if(input[0]==x)
+         return 0;
+    else
+        return -1;
+    }
+    // case-2 if we dont get -1 but a position then we add 1 to it and return the last index
+    else
+    {
+        int ans= check_small + 1;
+        return ans;
+    }
+    
+}
+
+int main(){
+    int n;
+    cin >> n;
+  
+    int *input = new int[n];
+    
+    for(int i = 0; i < n; i++) {
+        cin >> input[i];
+    }
+    
+    int x;
+    
+    cin >> x;
+    
+    cout << lastIndex(input, n, x) << endl;
+
+}
+
+
