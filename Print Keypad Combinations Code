@@ -1,0 +1,78 @@
+Given an integer n, using phone keypad find out and print all the possible strings that can be made using digits of input n.
+Note : The order of strings are not important. Just print different strings in new lines.
+Input Format :
+Integer n
+Output Format :
+All possible strings in different lines
+Constraints :
+1 <= n <= 10^6
+Sample Input:
+23
+Sample Output:
+ad
+ae
+af
+bd
+be
+bf
+cd
+ce
+cf
+
+//CODE
+
+#include <iostream>
+#include <string>
+using namespace std;
+string digit_string(int last_digit)
+{
+     string last_digit_string;
+    switch (last_digit)
+    {
+        case 2:
+            last_digit_string = "abc";
+            break;
+        case 3:
+            last_digit_string = "def";
+            break;
+        case 4:
+            last_digit_string = "ghi";
+            break;
+        case 5:
+            last_digit_string = "jkl";
+            break;
+        case 6:
+            last_digit_string = "mno";
+            break;
+        case 7:
+            last_digit_string = "pqrs";
+            break;
+        case 8:
+            last_digit_string = "tuv";
+            break;
+        case 9:
+            last_digit_string = "wxyz";
+            break;
+    }
+    return last_digit_string;
+}
+void help(int num,string ans)
+{
+     //base case
+    if(num==0)
+    {
+        cout<<ans<<endl;
+        return;
+    }
+    //getting the string corrosponding to last digit
+    string last_digit_string = digit_string(num%10);
+    //now making the recursive call
+    for(int i=0; i<last_digit_string.size(); i++)
+    {
+        help(num/10,last_digit_string[i] + ans);
+    }
+}
+void printKeypad(int num){
+   string ans = "";
+    help(num,ans);
+}
